@@ -7,7 +7,7 @@ local M = {}
 
 M.base46 = {
     theme = "catppuccin",
-    -- transparency = true,
+    -- transparency = true
 
     -- hl_override = {
     -- 	Comment = { italic = true },
@@ -16,6 +16,15 @@ M.base46 = {
 }
 
 M.ui = {
+    cmp = {
+        icons_left = true,   -- only for non-atom styles!
+        lspkind_text = true,
+        style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
+        format_colors = {
+            tailwind = true, -- will work for css lsp too
+            icon = "󱓻",
+        },
+    },
     telescope = { style = "bordered" },
     statusline = {
         enabled = true,
@@ -25,6 +34,12 @@ M.ui = {
         -- round and block will work for minimal theme only
         separator_style = "round",
         order = nil,
+        modules = nil,
+    },
+    tabufline = {
+        enabled = true,
+        lazyload = true,
+        order = { "treeOffset", "buffers", "tabs", "btns" },
         modules = nil,
     },
 }
@@ -52,8 +67,8 @@ M.nvdash = {
         { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
         { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
         { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
-        { txt = "󰉋  Project", keys = "pf", cmd = "lua require'telescope'.extensions.projects.projects{}"},
-        { txt = "󰥔  Session", keys = "sn", cmd = "SessionSearch"},
+        { txt = "󰉋  Project", keys = "pf", cmd = "lua require'telescope'.extensions.projects.projects{}" },
+        { txt = "󰥔  Session", keys = "sn", cmd = "SessionSearch" },
 
         { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
 

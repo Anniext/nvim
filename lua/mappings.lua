@@ -10,7 +10,7 @@ map("n", "U", "<C-r>", { desc = "C" })
 map("n", "<leader>;", "<cmd> Nvdash <cr>", { desc = "Nvdash" })
 map("n", "vh", "<cmd> split <cr>", { desc = "Nvdash" })
 map("n", "vg", "<cmd> vsplit <cr>", { desc = "Nvdash" })
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i", "v" }, "<D-s>", "<cmd> w <cr>")
 map({ "n", "i", "v" }, "<leader>w", "<cmd> w <cr>")
 
 map("n", "<leader>q", function()
