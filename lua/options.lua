@@ -83,18 +83,9 @@ dap.configurations.go = {
         program = "${fileDirname}",
     },
 }
-dapui.setup {
-    elements = {
-        { id = "scopes", size = 0.50 },
-        { id = "breakpoints", size = 0.50},
-        { id = "stacks", size = 0.50 },
-        { id = "watches", size = 0.50 },
-    },
-}
-require("nvim-dap-virtual-text").setup()
-require("neodev").setup({
-    -- add any options here, or leave empty to use the default settings
-})
+
+require("nvim-dap-virtual-text").setup {}
+require("neodev").setup {}
 
 -- then setup your lsp server as usual
 local lspconfig = require "lspconfig"
@@ -109,3 +100,33 @@ lspconfig.lua_ls.setup {
         },
     },
 }
+
+require("telescope").load_extension "lazygit"
+
+local highlight = {
+    "RainbowRed",
+    "RainbowYellow",
+    "RainbowBlue",
+    "RainbowOrange",
+    "RainbowGreen",
+    "RainbowViolet",
+    "RainbowCyan",
+}
+local hooks = require "ibl.hooks"
+-- create the highlight groups in the highlight setup hook, so they are reset
+-- every time the colorscheme changes
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+end)
+
+vim.g.rainbow_delimiters = { highlight = highlight }
+require("ibl").setup { scope = { highlight = highlight } }
+
+hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
+

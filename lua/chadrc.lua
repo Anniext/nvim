@@ -28,11 +28,11 @@ M.ui = {
     telescope = { style = "bordered" },
     statusline = {
         enabled = true,
-        theme = "default", -- default/vscode/vscode_colored/minimal
+        theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
         -- default/
         -- round/block/arrow separators work only for default statusline theme
         -- round and block will work for minimal theme only
-        separator_style = "round",
+        separator_style = "arrow",
         order = nil,
         modules = nil,
     },
@@ -64,7 +64,7 @@ M.nvdash = {
     buttons = {
         { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
         { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
-        { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
+        -- { txt = "󰈭  Find Git", keys = "fw", cmd = "lua require'telescope'.extensions.lazygit.lazygit()" },
         { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
         { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
         { txt = "󰉋  Project", keys = "pf", cmd = "lua require'telescope'.extensions.projects.projects{}" },
