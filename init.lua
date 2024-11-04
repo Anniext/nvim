@@ -50,4 +50,8 @@ if vim.g.neovide then
     vim.g.neovide_scroll_animation_length = 0.3
     vim.g.neovide_underline_stroke_scale = 1.0
     vim.g.neovide_cursor_smooth_blink = true
+    vim.g.neovide_cursor_antialiasing = true
+    vim.g.neovide_cursor_vfx_mode = "railgun"
+    vim.g.neovide_cursor_vfx_particle_lifetime = 2
+    vim.g.neovide_cursor_vfx_particle_density = 10
 end
