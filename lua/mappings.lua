@@ -12,7 +12,7 @@ map("n", "<leader>;", "<cmd> Nvdash <cr>", { desc = "Nvdash" })
 map("n", "vh", "<cmd> split <cr>", { desc = "Nvdash" })
 map("n", "vg", "<cmd> vsplit <cr>", { desc = "Nvdash" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-map({ "n", "i", "v" }, "<leader>ww", "<cmd> w <cr>",{desc="Save"})
+map({ "n", "i", "v" }, "<leader>ww", "<cmd> w <cr>", { desc = "Save" })
 map("n", "<leader>q", function()
     require("nvchad.tabufline").close_buffer()
 end, { desc = "buffer close" })
@@ -25,18 +25,34 @@ end, { desc = "buffer goto prev" })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 
 -- dap
-map("n", "<F5>", function() require("dap").continue() end)
-map("n", "<F10>", function() require("dap").step_over() end)
-map("n", "<F11>", function() require("dap").step_into() end)
-map("n", "<F12>", function() require("dap").step_out() end)
-map("n", "<leader>b", function() require("dap").toggle_breakpoint() end)
+map("n", "<F5>", function()
+    require("dap").continue()
+end)
+map("n", "<F10>", function()
+    require("dap").step_over()
+end)
+map("n", "<F11>", function()
+    require("dap").step_into()
+end)
+map("n", "<F12>", function()
+    require("dap").step_out()
+end)
+map("n", "<leader>b", function()
+    require("dap").toggle_breakpoint()
+end)
 
 -- git
-map("n", "<leader>lr", function() require("telescope").extensions.lazygit.lazygit() end, {desc = "Git Repo"})
+map("n", "<leader>lr", function()
+    require("telescope").extensions.lazygit.lazygit()
+end, { desc = "Git Repo" })
 
 -- cellular
-map("n", "<leader>tr", function() require("cellular-automaton").start_animation("make_it_rain") end, {desc = "make_it_rain"})
-map("n", "<leader>tl", function() require("cellular-automaton").start_animation("game_of_life") end, {desc = "game_of_life"})
+map("n", "<leader>tr", function()
+    require("cellular-automaton").start_animation "make_it_rain"
+end, { desc = "make_it_rain" })
+map("n", "<leader>tl", function()
+    require("cellular-automaton").start_animation "game_of_life"
+end, { desc = "game_of_life" })
 
 -- go
 
@@ -47,3 +63,9 @@ map("n", "<leader>ge", "<cmd> GoIfErr<cr>", { desc = "go if err" })
 map("n", "<leader>gm", "<cmd> GoModTidy<cr>", { desc = "go mod tidy" })
 map("n", "<leader>go", "<cmd> GoPkgOutline<cr>", { desc = "go pkg outline" })
 map("n", "<leader>gi", "<cmd> GoToggleInlay<cr>", { desc = "go toggle inlay" })
+
+--goplay
+--
+vim.api.nvim_set_keymap("n", "<leader>gpt", ":GPToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gpe", ":GPExec<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>gpf", ":GPExecFile<CR>", { noremap = true, silent = true })
