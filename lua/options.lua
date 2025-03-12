@@ -85,7 +85,7 @@ dap.configurations.go = {
 }
 
 require("nvim-dap-virtual-text").setup {}
-require("neodev").setup {}
+-- require("neodev").setup {}
 
 -- then setup your lsp server as usual
 local lspconfig = require "lspconfig"
@@ -102,6 +102,8 @@ lspconfig.lua_ls.setup {
 }
 
 require("telescope").load_extension "lazygit"
+
+-- rainbow_line
 
 local highlight = {
     "RainbowRed",
@@ -124,36 +126,13 @@ hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
     vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
     vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 end)
-
 vim.g.rainbow_delimiters = { highlight = highlight }
 require("ibl").setup { scope = { highlight = highlight } }
-
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
 require("goplay").setup()
 
--- lint
-require("lint").linters_by_ft = {
-    lua = { "selene" },
-    typescript = { "biome" },
-    javescript = { "biome" },
-    json = { "biome" },
-    yaml = { "yamllint" },
-    python = { "mypy" },
-    docker = { "hadolint" },
-}
-
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-    callback = function()
-        -- try_lint without arguments runs the linters defined in `linters_by_ft`
-        -- for the current filetype
-        require("lint").try_lint()
-
-        -- You can call `try_lint` with a linter name or a list of names to always
-        -- run specific linters, independent of the `linters_by_ft` configuration
-        require("lint").try_lint "cspell"
-    end,
-})
+require("barbar").setup()
 
 -- auto-save
 require("auto-save").setup {

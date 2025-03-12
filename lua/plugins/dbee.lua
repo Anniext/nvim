@@ -1,0 +1,18 @@
+return {
+    -- 数据库连接
+    {
+        "kndndrj/nvim-dbee",
+        requires = {
+            "MunifTanjim/nui.nvim",
+        },
+        run = function()
+            -- Install tries to automatically detect the install method.
+            -- if it fails, try calling it with one of these parameters:
+            --    "curl", "wget", "bitsadmin", "go"
+            require("dbee").install()
+        end,
+        config = function()
+            require("dbee").setup( --[[optional config]])
+        end,
+    }
+}
