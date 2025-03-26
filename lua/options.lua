@@ -1,7 +1,5 @@
 require "nvchad.options"
-
 -- add yours here!
-
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
@@ -132,7 +130,6 @@ require("ibl").setup { scope = { highlight = highlight } }
 hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
 require("goplay").setup()
-
 require("barbar").setup()
 
 -- auto-save
@@ -140,4 +137,17 @@ require("auto-save").setup {
     enabled = true,
     debounce_delay = 0,
     trigger_events = { "TextChanged" },
+}
+
+require('nvim-cursorline').setup {
+    cursorline = {
+        enable = true,
+        timeout = 1000,
+        number = false,
+    },
+    cursorword = {
+        enable = true,
+        min_length = 3,
+        hl = { underline = true },
+    }
 }
