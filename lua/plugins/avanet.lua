@@ -23,6 +23,18 @@ return {
             --     embed_model = "text-embedding-v3", -- The embedding model to use for RAG service
             --     endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1", -- The API endpoint for RAG service
             -- },
+            -- behaviour = {
+            --     auto_suggestions = true,
+            --     support_paste_from_clipboard = true,
+            --     enable_cursor_planning_mode = true
+            -- },
+            -- rag_service = {
+            --     enabled = true, -- Enables the RAG service, requires OPENAI_API_KEY to be set
+            --     provider = "openai", -- The provider to use for RAG service (e.g. openai or ollama)
+            --     llm_model = "qwen2.5-coder-32b-instruct", -- The LLM model to use for RAG service
+            --     embed_model = "text-embedding-v3", -- The embedding model to use for RAG service
+            --     endpoint = "https://dashscope.aliyuncs.com/compatible-mode/v1", -- The API endpoint for RAG service
+            -- },
         },
         hints = { enabled = true },
         -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
