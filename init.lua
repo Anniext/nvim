@@ -35,7 +35,3 @@ require "nvchad.autocmds"
 vim.schedule(function()
     require "mappings"
 end)
-<<<<<<< HEAD
-=======
-
->>>>>>> ccfc44aa27c9c183f098d5e5b3ee1c4e773f34f7
