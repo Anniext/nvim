@@ -5,6 +5,7 @@ return {
         event = "VeryLazy",
         opts = {
             bind = true,
+            hint_prefix = "🚀 ",
             handler_opts = {
                 border = "rounded",
             },

@@ -12,6 +12,7 @@ local options = {
         cpp = { "clang_format" },
         typescript = { "prettier" },
         javescript = { "prettier" },
+        rust = { "bacon" },
     },
 
     format_on_save = {

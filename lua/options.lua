@@ -3,20 +3,20 @@ require "nvchad.options"
 -- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 
-local format_sync_grp = vim.api.nvim_create_augroup("goimports", {})
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.go",
-    callback = function()
-        require("go.format").goimports()
-    end,
-    group = format_sync_grp,
-})
+-- local format_sync_grp = vim.api.nvim_create_augroup("goimports", {})
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     pattern = "*.go",
+--     callback = function()
+--         require("go.format").goimports()
+--     end,
+--     group = format_sync_grp,
+-- })
 
 require("noice").setup {
     backgroud_colour = "#000000",
     lsp = {
         hover = { enabled = true },
-        signature = { enabled = false },
+        signature = { enabled = true },
 
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -27,11 +27,11 @@ require("noice").setup {
     },
     -- you can enable a preset for easier configuration
     presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
-        command_palette = true, -- position the cmdline and popupmenu together
+        bottom_search = true,         -- use a classic bottom cmdline for search
+        command_palette = true,       -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = true, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true, -- add a border to hover docs and signature help
+        inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true,        -- add a border to hover docs and signature help
     },
 }
 
@@ -199,19 +199,6 @@ require("diffview").setup()
 -- }
 
 -- cursorline
-require("nvim-cursorline").setup {
-    cursorline = {
-        enable = true,
-        timeout = 1000,
-        number = false,
-    },
-    cursorword = {
-        enable = true,
-        min_length = 3,
-        hl = { underline = true },
-    },
-}
-
 require("nvim-cursorline").setup {
     cursorline = {
         enable = true,

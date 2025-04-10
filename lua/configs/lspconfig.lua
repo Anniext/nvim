@@ -18,6 +18,7 @@ local servers = {
     "gitlab_ci_ls",
     "dockerls",
     "yamlls",
+    "rust-analyzer",
 }
 local nvlsp = require "nvchad.configs.lspconfig"
 

@@ -42,7 +42,7 @@ return {
             vim.keymap.set("n", "zR", ufo.openAllFolds)
             vim.keymap.set("n", "zM", ufo.closeAllFolds)
             vim.o.foldlevel = 99
-            vim.o.foldlevelstart = 0
+            vim.o.foldlevelstart = 99
             vim.o.foldenable = true
         end,
     },

@@ -1,4 +1,5 @@
 return {
+    -- 上下文
     {
         "utilyre/barbecue.nvim",
         name = "barbecue",
