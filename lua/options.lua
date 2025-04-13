@@ -3,8 +3,10 @@ require "nvchad.options"
 require("noice").setup {
     backgroud_colour = "#000000",
     lsp = {
+        signature = {
+            enabled = false,
+        },
         hover = { enabled = false},
-        signature = { enabled = false},
 
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {

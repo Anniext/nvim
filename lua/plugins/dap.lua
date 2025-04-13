@@ -18,7 +18,13 @@ return {
             require("nvim-dap-virtual-text").setup() -- optional
             local ok, noice = pcall(require, "noice")
             if ok then
-                noice.setup()
+                noice.setup {
+                    lsp = {
+                        signature = {
+                            enabled = false,
+                        },
+                    },
+                }
             end
             require "configs.dapui"
         end,
@@ -45,8 +51,8 @@ return {
             "mfussenegger/nvim-dap",
             "rcarriga/nvim-dap-ui",
         },
-        config = function ()
-            require('dap-go').setup()
-        end
-    }
+        config = function()
+            require("dap-go").setup()
+        end,
+    },
 }
