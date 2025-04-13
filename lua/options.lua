@@ -1,22 +1,10 @@
 require "nvchad.options"
--- add yours here!
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
-
--- local format_sync_grp = vim.api.nvim_create_augroup("goimports", {})
--- vim.api.nvim_create_autocmd("BufWritePre", {
---     pattern = "*.go",
---     callback = function()
---         require("go.format").goimports()
---     end,
---     group = format_sync_grp,
--- })
 
 require("noice").setup {
     backgroud_colour = "#000000",
     lsp = {
-        hover = { enabled = true },
-        signature = { enabled = true },
+        hover = { enabled = false},
+        signature = { enabled = false},
 
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
@@ -27,11 +15,11 @@ require("noice").setup {
     },
     -- you can enable a preset for easier configuration
     presets = {
-        bottom_search = true,         -- use a classic bottom cmdline for search
-        command_palette = true,       -- position the cmdline and popupmenu together
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
-        inc_rename = true,            -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = true,        -- add a border to hover docs and signature help
+        inc_rename = true, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = true, -- add a border to hover docs and signature help
     },
 }
 
@@ -54,36 +42,6 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.timeoutlen = 100
 vim.o.undofile = true
-
-local dap = require "dap"
-local dapui = require "dapui"
-require("dap-go").setup()
-dapui.setup()
-
-dap.listeners.before.attach.dapui_config = function()
-    dapui.open()
-end
-dap.listeners.before.launch.dapui_config = function()
-    dapui.open()
-end
-dap.listeners.before.event_terminated.dapui_config = function()
-    dapui.close()
-end
-dap.listeners.before.event_exited.dapui_config = function()
-    dapui.close()
-end
-
-dap.configurations.go = {
-    {
-        type = "go",
-        name = "Debug",
-        request = "launch",
-        program = "${fileDirname}",
-    },
-}
-
-require("nvim-dap-virtual-text").setup {}
--- require("neodev").setup {}
 
 -- then setup your lsp server as usual
 local lspconfig = require "lspconfig"
@@ -191,6 +149,7 @@ require("barbecue").setup {
 }
 require("ufo").setup()
 require("diffview").setup()
+require("dap-go").setup()
 -- auto-save
 -- require("auto-save").setup {
 --     enabled = true,
