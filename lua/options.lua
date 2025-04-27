@@ -6,7 +6,7 @@ require("noice").setup {
         signature = {
             enabled = false,
         },
-        hover = { enabled = false},
+        hover = { enabled = false },
 
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {

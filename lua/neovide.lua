@@ -1,5 +1,6 @@
 if vim.g.neovide then
-    vim.o.guifont = "ComicShannsMono Nerd Font:h12"
+    -- vim.o.guifont = "ComicShannsMono Nerd Font:h12"
+    vim.o.guifont = "Maple_Mono_NF_CN:h12"
     vim.opt.linespace = 2
     vim.g.transparency = 0.8
     vim.g.neovide_window_blurred = true
