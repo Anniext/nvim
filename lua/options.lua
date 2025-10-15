@@ -31,10 +31,10 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 -- Indenting
 vim.o.expandtab = true
-vim.o.shiftwidth = 4
+vim.o.shiftwidth = 2
 vim.o.smartindent = true
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
 
 -- disable nvim intro
 vim.opt.shortmess:append "sI"
@@ -46,18 +46,14 @@ vim.o.timeoutlen = 100
 vim.o.undofile = true
 
 -- then setup your lsp server as usual
-local lspconfig = require "lspconfig"
-
--- example to setup lua_ls and enable call snippets
-lspconfig.lua_ls.setup {
+vim.lsp.config("lua_ls", {
+    cmd = { "lua-language-server" }, -- 或绝对路径 /opt/homebrew/bin/lua-language-server
     settings = {
         Lua = {
-            completion = {
-                callSnippet = "Replace",
-            },
+            completion = { callSnippet = "Replace" },
         },
     },
-}
+})
 
 require("telescope").load_extension "lazygit"
 -- require("telescope").load_extension "rest"
@@ -172,3 +168,5 @@ require("nvim-cursorline").setup {
         hl = { underline = true },
     },
 }
+
+vim.g.copilot_auth_provider_url = "https://cp.acce.dev"
