@@ -1,3 +1,7 @@
+vim.lsp.buf_get_clients = function(bufnr)
+    -- 0 表示当前缓冲区，与旧 API 行为完全一致
+    return vim.lsp.get_clients { bufnr = bufnr or 0 }
+end
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
